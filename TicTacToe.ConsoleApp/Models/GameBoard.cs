@@ -33,5 +33,35 @@ namespace TicTacToe.ConsoleApp.Models
                 }
             }
         }
+
+        public bool Move(Player player, int row, int col)
+        {
+            if (row < 1
+                || col < 1
+                || row > Grid.Rows
+                || col > Grid.Columns)
+            {
+                Message = string.Format("Invalid coordinate: {0},{1}", row, col);
+                return false;
+            }
+
+            int iRow = row - 1; int iCol = col - 1; //get to 0-based index
+
+            var cell = Grid.Cells.Find(c => c.Row == iRow && c.Col == iCol);
+            if (cell == null)
+            {
+                Message = string.Format("Invalid Cell: {0},{1}", row, col);
+                return false;
+            }
+
+            if (!string.IsNullOrWhiteSpace(cell.Marker))
+            {
+                Message = string.Format("Cell already claimed by '{2}': {0},{1}", row, col, cell.Marker);
+                return false;
+            }
+
+            cell.Marker = player.Marker;
+            return true;
+        }
     }
 }

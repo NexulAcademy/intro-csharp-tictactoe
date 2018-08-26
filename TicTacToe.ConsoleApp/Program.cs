@@ -41,13 +41,22 @@ namespace TicTacToe.ConsoleApp
         }
         public static void PlayerMove(GameBoard board, Player player)
         {
-            ConsoleGameBoardRenderer.RenderBoard(board);
-            Console.WriteLine(string.Format("{0}'s turn", player.Name));
+            while (true)
+            {
+                ConsoleGameBoardRenderer.RenderBoard(board);
+                Console.WriteLine(string.Format("{0}'s turn", player.Name));
 
-            var row = PromptInteger("Enter row:");
-            var col = PromptInteger("Enter col:");
+                var row = PromptInteger("Enter row:");
+                var col = PromptInteger("Enter col:");
 
-            // TODO: record the move on the grid
+                if (board.Move(player, row, col))
+                    break;
+
+                Console.WriteLine();
+                Console.WriteLine(board.Message);
+                Console.WriteLine("press ENTER to continue");
+                Console.ReadLine();
+            }
         }
 
 
