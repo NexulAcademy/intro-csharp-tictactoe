@@ -4,7 +4,9 @@ using System.Text;
 
 namespace TicTacToe.ConsoleApp.Models
 {
-    class Player
+    public class Player
     {
+        public string Name { get; set; }
+        public string Marker { get; set; }
     }
 }
