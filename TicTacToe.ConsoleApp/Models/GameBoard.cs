@@ -11,5 +11,11 @@ namespace TicTacToe.ConsoleApp.Models
         public Grid Grid { get; set; }
 
         public List<Player> Players { get; set; }
+
+        public GameBoard()
+        {
+            Grid = new Grid();
+            Players = new List<Player>();
+        }
     }
 }

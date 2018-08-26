@@ -9,5 +9,10 @@ namespace TicTacToe.ConsoleApp.Models
         public int Rows { get; set; }
         public int Columns { get; set; }
         public List<GridCell> Cells { get; set; }
+
+        public Grid()
+        {
+            Cells = new List<GridCell>();
+        }
     }
 }

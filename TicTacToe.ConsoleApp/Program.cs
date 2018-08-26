@@ -21,7 +21,6 @@ namespace TicTacToe.ConsoleApp
         public static GameBoard CreateGameBoard()
         {
             var board = new GameBoard();
-            board.Grid = new Grid();
 
             for (int r = 0; r < 3; r++)
             {
@@ -30,7 +29,6 @@ namespace TicTacToe.ConsoleApp
                     var cell = new GridCell();
                     cell.Row = r;
                     cell.Col = c;
-                    board.Grid.Cells = new List<GridCell>();
                     board.Grid.Cells.Add(cell);
                 }
             }
