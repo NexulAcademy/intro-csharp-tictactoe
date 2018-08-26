@@ -29,7 +29,7 @@ namespace TicTacToe.ConsoleApp
                 for (var p = 0; p < board.Players.Count; p++)
                 {
                     var player = board.Players[p];
-                    // TODO: prompt the player to pick a move
+                    PlayerMove(board, player);
                 }
                 ConsoleGameBoardRenderer.RenderBoard(board);
 
@@ -39,6 +39,17 @@ namespace TicTacToe.ConsoleApp
                     break; //some way to exit the game other than closing window.
             }
         }
+        public static void PlayerMove(GameBoard board, Player player)
+        {
+            ConsoleGameBoardRenderer.RenderBoard(board);
+            Console.WriteLine(string.Format("{0}'s turn", player.Name));
+
+            var row = PromptInteger("Enter row:");
+            var col = PromptInteger("Enter col:");
+
+            // TODO: record the move on the grid
+        }
+
 
         public static GameBoard CreateGameBoard()
         {
