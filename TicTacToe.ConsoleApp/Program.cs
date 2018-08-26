@@ -24,27 +24,26 @@ namespace TicTacToe.ConsoleApp
         }
         public static GameBoard CreateGameBoard()
         {
-            int cols = 0; int rows = 0;
-            while (rows == 0)
-            {
-                Console.Write("How many rows?:");
-                if (!int.TryParse(Console.ReadLine(), out rows))
-                {
-                    Console.WriteLine("Enter an integer value (Example: 3)");
-                }
-            }
-            while (cols == 0)
-            {
-                Console.Write("How many columns?:");
-                if (!int.TryParse(Console.ReadLine(), out cols))
-                {
-                    Console.WriteLine("Enter an integer value (Example: 3)");
-                }
-            }
+            int cols = PromptInteger("How many rows?:");
+            int rows = PromptInteger("How many columns?:");
 
             var board = new GameBoard();
             board.Generate(rows, cols);
             return board;
+        }
+
+        private static int PromptInteger(string message)
+        {
+            int x = 0;
+            while (x == 0)
+            {
+                Console.Write(message);
+                if (!int.TryParse(Console.ReadLine(), out x))
+                {
+                    Console.WriteLine("Enter an integer value (Example: 3)");
+                }
+            }
+            return x;
         }
     }
 }
