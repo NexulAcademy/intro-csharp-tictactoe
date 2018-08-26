@@ -11,16 +11,15 @@ namespace TicTacToe.ConsoleApp
             Console.WriteLine("Tic Tac Toe");
 
             var board = CreateGameBoard();
-            // TODO: render the board
-            foreach (var cell in board.Grid.Cells)
-            {
-                Console.WriteLine(string.Format("{0}:{1}", cell.Row, cell.Col));
-            }
+            ConsoleGameBoardRenderer.RenderBoard(board);
 
             SetupPlayers(board);
+            ConsoleGameBoardRenderer.RenderBoard(board);
 
             Console.WriteLine("Press ENTER to begin");
             Console.ReadLine();
+
+            // TODO: add game play logic
         }
         public static GameBoard CreateGameBoard()
         {
