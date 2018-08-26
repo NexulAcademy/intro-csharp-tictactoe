@@ -19,8 +19,27 @@ namespace TicTacToe.ConsoleApp
             Console.WriteLine("Press ENTER to begin");
             Console.ReadLine();
 
-            // TODO: add game play logic
+            GameLoop(board);
         }
+
+        public static void GameLoop(GameBoard board)
+        {
+            while (true)
+            {
+                for (var p = 0; p < board.Players.Count; p++)
+                {
+                    var player = board.Players[p];
+                    // TODO: prompt the player to pick a move
+                }
+                ConsoleGameBoardRenderer.RenderBoard(board);
+
+                Console.WriteLine("Quit? (y | n)");
+                var key = Console.ReadKey();
+                if (key.KeyChar.ToString().ToLower() == "y")
+                    break; //some way to exit the game other than closing window.
+            }
+        }
+
         public static GameBoard CreateGameBoard()
         {
             int cols = PromptInteger("How many rows?:");
