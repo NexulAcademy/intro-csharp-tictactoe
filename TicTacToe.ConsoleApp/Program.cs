@@ -12,6 +12,10 @@ namespace TicTacToe.ConsoleApp
 
             var board = CreateGameBoard();
             // TODO: render the board
+            foreach (var cell in board.Grid.Cells)
+            {
+                Console.WriteLine(string.Format("{0}:{1}", cell.Row, cell.Col));
+            }
 
             // TODO: ask for player names
 
@@ -21,17 +25,7 @@ namespace TicTacToe.ConsoleApp
         public static GameBoard CreateGameBoard()
         {
             var board = new GameBoard();
-
-            for (int r = 0; r < 3; r++)
-            {
-                for (int c = 0; c < 3; c++)
-                {
-                    var cell = new GridCell();
-                    cell.Row = r;
-                    cell.Col = c;
-                    board.Grid.Cells.Add(cell);
-                }
-            }
+            board.Generate(3, 3);
             return board;
         }
     }

@@ -14,8 +14,24 @@ namespace TicTacToe.ConsoleApp.Models
 
         public GameBoard()
         {
-            Grid = new Grid();
+            Grid = new Grid(0, 0);
             Players = new List<Player>();
+        }
+
+        public void Generate(int rows, int cols)
+        {
+            Grid = new Grid(rows, cols);
+
+            for (int r = 0; r < rows; r++)
+            {
+                for (int c = 0; c < cols; c++)
+                {
+                    var cell = new GridCell();
+                    cell.Row = r;
+                    cell.Col = c;
+                    Grid.Cells.Add(cell);
+                }
+            }
         }
     }
 }
