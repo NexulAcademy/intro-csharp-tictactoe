@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using TicTacToe.ConsoleApp.Models;
 
 namespace TicTacToe.ConsoleApp
@@ -11,6 +12,8 @@ namespace TicTacToe.ConsoleApp
 
             var board = CreateGameBoard();
             // TODO: render the board
+
+            // TODO: ask for player names
 
             Console.WriteLine("Press ENTER to begin");
             Console.ReadLine();
@@ -27,6 +30,7 @@ namespace TicTacToe.ConsoleApp
                     var cell = new GridCell();
                     cell.Row = r;
                     cell.Col = c;
+                    board.Grid.Cells = new List<GridCell>();
                     board.Grid.Cells.Add(cell);
                 }
             }
