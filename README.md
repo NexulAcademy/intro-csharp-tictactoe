@@ -1,3 +1,7 @@
+This project is ARCHIVED.  Dependency versions are out of date.  This is an example only.  More up to date instructions can be found in Nexul Academy courseware at:
+
+https://www.nexulacademy.com/courseware/csharp-introduction
+
 # intro-csharp-tictactoe
 Introductory presentation project to learn some C#. This project is a tic tac toe game as a windows console project to learn object oriented design concepts.
 
